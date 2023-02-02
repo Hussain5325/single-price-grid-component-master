@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+$bg-color: (
+  'text': hsl(218, 22%, 67%),
+  'body': hsl(204, 43%, 93%),
+  'button': hsl(71, 73%, 54%),
+  'color': hsl(179, 62%, 43%),
+  'color2': hsl(179, 47%, 52%),
+  'white': #fff,
+);
+
+@function color($color) {
+  @return map-get($bg-color, $color);
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: color('body');
+  font-family: 'Karla', sans-serif;
+  display: grid;
+  place-content: center;
+}
+
+.container {
+  max-width: 640px;
+  border-radius: 10px;
+  background-color: color('white');
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#Join {
+  grid-area: 1 / 1 / 2 / 4;
+  padding: 30px;
+
+  h1 {
+    color: color('color');
+    font-size: 22px;
+  }
+
+  .semi-title {
+    color: color('button');
+    font-size: 18px;
+  }
+
+  p {
+    color: color('text');
+  }
+}
+
+#price {
+  padding: 30px;
+  background-color: color('color');
+  color: color('white');
+
+  span {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      font-size: 32px;
+      margin: 0;
+    }
+
+    p {
+      color: color('body');
+    }
+  }
+
+  #btn {
+    width: 237px;
+    height: 50px;
+    background-color: color('button');
+    border-radius: 5px;
+    border: none;
+    color: color('white');
+    cursor: pointer;
+    font-size: 16px;
+  }
+}
+
+#why {
+  padding: 30px;
+  background-color: color('color2');
+  h3 {
+    color: color('white');
+  }
+  p {
+    color: color('body');
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 416px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  #why {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+}
